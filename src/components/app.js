@@ -128,7 +128,8 @@ class App extends Component {
     }
     const page = pages[store.modal.page] || {};
 
-    if (!page.providers) {
+    const isLocal = localHosts[document.location.host.split(":").shift()];
+    if (!page.providers || isLocal) {
       return null;
     }
 
