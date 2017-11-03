@@ -6,6 +6,7 @@ import LogoutForm from "./forms/logout";
 import UserForm from "./forms/user";
 import Providers from "./forms/providers";
 import Message from "./forms/message";
+import localHosts from '../netlify-identity';
 
 const pagesWithHeader = { login: true, signup: true };
 const pages = {
