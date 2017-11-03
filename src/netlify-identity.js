@@ -64,14 +64,14 @@ function setStyle(el, css) {
   }
 }
 
-const localHosts = {
+export const localHosts = {
   localhost: true,
   "127.0.0.1": true,
   "0.0.0.0": true
 };
-export const isLocal = localHosts[document.location.host.split(":").shift()];
 
 function instantiateGotrue() {
+  const isLocal = localHosts[document.location.host.split(":").shift()];
   const siteURL = isLocal && localStorage.getItem("netlifySiteURL");
   if (isLocal && siteURL) {
     const parts = [siteURL];
@@ -193,6 +193,7 @@ function init(options) {
     );
   });
 
+  
   store.init(instantiateGotrue());
   if (options.hasOwnProperty("logo")) store.modal.logo = options.logo;
   iframe = document.createElement("iframe");
