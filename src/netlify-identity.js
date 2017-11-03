@@ -69,9 +69,9 @@ const localHosts = {
   "127.0.0.1": true,
   "0.0.0.0": true
 };
+export const isLocal = localHosts[document.location.host.split(":").shift()];
 
 function instantiateGotrue() {
-  const isLocal = localHosts[document.location.host.split(":").shift()];
   const siteURL = isLocal && localStorage.getItem("netlifySiteURL");
   if (isLocal && siteURL) {
     const parts = [siteURL];
